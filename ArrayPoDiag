@@ -1,0 +1,40 @@
+package 05;
+
+import java.util.Scanner;
+
+public class ArrayPoDiag {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int m = sc.nextInt();
+
+		int[][] array = new int[n][m];
+
+		int strIndX = n - 1;
+		int strIndY = 0;
+		int counter = 1;
+
+		while (strIndX >= 0 && strIndY < m) {
+			int i = strIndX;
+			int j = strIndY;
+			while (i < n && j < m) {
+				array[i][j] = counter;
+				counter++;
+				i++;
+				j++;
+			}
+			if (strIndX > 0) {
+				strIndX--;
+			} else {
+				strIndY++;
+			}
+		}
+		for (int i = 0; i < array.length; i++) {
+			System.out.println();
+			for (int j = 0; j < array[0].length; j++) {
+				System.out.print(array[i][j] + " ");
+			}
+		}
+	}
+}
